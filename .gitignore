@@ -1,0 +1,8 @@
+# User-specific config (populated during /setup-time)
+references/user-context.md
+
+# OS files
+.DS_Store
+
+# Archives
+*.zip
