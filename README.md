@@ -11,11 +11,11 @@ The pain: you do the work, your calendar reflects it, and then you either spend 
 
 ## Install
 
-Recommended: via the [BrightWayAI marketplace](https://github.com/BrightWayAI/claude-plugins).
+Recommended: via the [BrightWayAI marketplace](https://github.com/BrightWayAI/nucleus).
 
 ```
-/plugin marketplace add BrightWayAI/claude-plugins
-/plugin install time-tracking@claude-plugins
+/plugin marketplace add BrightWayAI/nucleus
+/plugin install time-tracking@nucleus
 ```
 
 ## First-time setup
