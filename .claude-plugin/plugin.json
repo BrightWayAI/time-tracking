@@ -1,7 +1,7 @@
 {
   "name": "time-tracking",
-  "version": "0.1.0",
-  "description": "Calendar-driven time tracking and invoice generation. Pulls calendar events, classifies billable time per client/project (using project-setup engagements when available), logs to a local file at ~/Documents/Claude/time-log.csv, and produces invoices at month-end. Closes the calendar-to-money loop most consultants leave on the table.",
+  "version": "0.2.0",
+  "description": "Calendar-driven time tracking and invoice generation. Pulls calendar events, classifies billable time per client/project (using project-setup engagements when available), logs to a local file at <config-root>/time-log.csv, and produces invoices at month-end. Closes the calendar-to-money loop most consultants leave on the table.",
   "author": {
     "name": "BrightWay AI"
   },

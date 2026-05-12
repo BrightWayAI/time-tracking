@@ -8,17 +8,36 @@ Short interview that captures what time-tracking needs to classify your calendar
 
 ---
 
-## Pre-step — Read shared identity (if available)
+## Step 0 — Resolve plugin config root
 
-Check `~/Documents/Claude/identity.md`. If populated, read company name, your name (for invoices), time zone, primary calendar.
+Per-plugin config in this marketplace lives under a user-chosen folder, recorded at `~/.claude-plugin-config-root` (single-line text file in the user's home).
 
-If missing, mention `/setup-identity` once but don't block — proceed inline.
+### A — Try the pointer
+
+Call `request_cowork_directory(~)` if not granted, then read `~/.claude-plugin-config-root`.
+- **Exists**: read line 1 → mount via `request_cowork_directory(<config-root>)`. Skip to section C.
+- **Missing**: continue to section B.
+
+### B — First-time bootstrap
+
+Prompt: "First-time plugin setup. Where should I store your plugin config — identity, voice, and per-plugin settings? Pick a folder you control (e.g., `~/Documents/Claude/` or `~/Documents/PluginConfig/`). The folder will hold `identity.md`, `voice.md`, and a `plugins/` subdirectory."
+
+Then:
+1. Call `request_cowork_directory(<path>)`. Create `<path>/plugins/`. Write absolute path to `~/.claude-plugin-config-root`.
+2. **Migration**: if `~/Documents/Claude/identity.md`, `voice.md`, or `time-log.csv` exists and `<path>` is not `~/Documents/Claude/`, offer to copy.
+3. **Pre-staged content**: if `~/Documents/Claude/plugin-configs/*.user-context.md` files exist, offer to copy into `<path>/plugins/`.
+
+### C — Read shared identity
+
+Read `<config-root>/identity.md`. If populated, pre-fill company name, your name (for invoices), time zone, primary calendar. If missing, offer `/setup-identity` first or proceed inline.
+
+For the rest of this document, **`<config-root>`** refers to the resolved path. This plugin's config file lives at **`<config-root>/plugins/time-tracking.user-context.md`** and the time log at **`<config-root>/time-log.csv`**.
 
 ---
 
 ## Step 1 — Check existing config
 
-Read `references/user-context.md`. Populated → ask whether to update or restart. Missing → fresh interview.
+Read `<config-root>/plugins/time-tracking.user-context.md`. Populated → ask whether to update or restart. Missing → fresh interview.
 
 If `project-setup` is installed and has populated client engagements, offer:
 > "I see you have active engagements in project-setup: [list]. Want to import those as billing-tracked clients? I'll just need rates and billing models for each."
@@ -96,13 +115,13 @@ Note: padding is opinionated. Some clients accept it, others don't. Default off.
 
 ## Step 7 — Time-log location
 
-- **File path** (default `~/Documents/Claude/time-log.csv`) — anywhere you want, but keep it stable so the schema stays consistent
+- **File path** (default `<config-root>/time-log.csv`) — anywhere you want, but keep it stable so the schema stays consistent
 
 ---
 
 ## Step 8 — Write the config
 
-Populate `references/user-context.md` with everything captured. Use the `references/user-context.template.md` structure.
+Populate `<config-root>/plugins/time-tracking.user-context.md` with everything captured. Use the `references/user-context.template.md` structure.
 
 ---
 

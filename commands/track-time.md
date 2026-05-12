@@ -1,5 +1,5 @@
 ---
-description: Pull calendar events from a time window (default: yesterday or last week), classify each as billable / non-billable / unknown by client, prompt for confirmation, and append to the time log at ~/Documents/Claude/time-log.csv. Run daily (5–10 min) or weekly (15–20 min). Reconstructing time at month-end takes hours; this turns it into a few minutes a day.
+description: Pull calendar events from a time window (default: yesterday or last week), classify each as billable / non-billable / unknown by client, prompt for confirmation, and append to the time log at <config-root>/time-log.csv. Run daily (5–10 min) or weekly (15–20 min). Reconstructing time at month-end takes hours; this turns it into a few minutes a day.
 ---
 
 # /track-time
@@ -10,7 +10,7 @@ Pull calendar → classify → log billable time. Closes the gap between "what y
 
 ## Step 0 — Preflight
 
-Read `references/user-context.md`. If missing, route to `/setup-time` and stop.
+Read `<config-root>/plugins/time-tracking.user-context.md`. If missing, route to `/setup-time` and stop.
 
 Also read shared identity at `~/Documents/Claude/identity.md` (calendar tool, time zone). And, if `project-setup` is installed and has populated user-context, read that for active engagement data (client names, contract values, project tags).
 
@@ -19,7 +19,7 @@ Extract from this plugin's user-context:
 - Tagging conventions (attendee domains / title prefix / project tags)
 - Default block rounding (15 / 30 / actual)
 - Categories (client-work / internal / bizdev / learning / etc.)
-- Time-log file path (default `~/Documents/Claude/time-log.csv`)
+- Time-log file path (default `<config-root>/time-log.csv`)
 
 ---
 
@@ -113,7 +113,7 @@ After all classifications: "Look right? (Y to log, edit to change, skip to drop 
 
 ## Step 5 — Append to time-log
 
-Once confirmed, append rows to `~/Documents/Claude/time-log.csv`. Format per `references/time-log-schema.md`:
+Once confirmed, append rows to `<config-root>/time-log.csv`. Format per `references/time-log-schema.md`:
 
 ```csv
 date,start,end,duration_min,client,project,category,billable,description,invoiced

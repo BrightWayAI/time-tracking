@@ -4,6 +4,14 @@ All notable changes to time-tracking are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/). Versions match `plugin.json`.
 
+## [0.2.0] — Config-root refactor
+
+### Changed
+- **Plugin config and time-log moved to a user-chosen folder.** Reads/writes now go to `<config-root>/plugins/time-tracking.user-context.md` and `<config-root>/time-log.csv` via the pointer at `~/.claude-plugin-config-root`.
+- **`/setup-time` Step 0 bootstraps the config root** and reads shared identity. Offers to migrate legacy `~/Documents/Claude/time-log.csv` during first-time bootstrap.
+- **`/track-time` and `/generate-invoices` updated** to read/write the new paths.
+- **User-facing prompts debranded** for fork-friendliness.
+
 ## [0.1.0] — Initial release
 
 ### Added

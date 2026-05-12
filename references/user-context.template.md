@@ -1,6 +1,6 @@
 # time-tracking user context (TEMPLATE)
 
-_Run `/setup-time` to generate your real `references/user-context.md` (gitignored)._
+_Run `/setup-time` to generate your real `<config-root>/plugins/time-tracking.user-context.md` (gitignored)._
 
 _Last updated: [filled by setup]_
 
@@ -46,4 +46,4 @@ _Last updated: [filled by setup]_
 - **Payment instructions:** [Stripe link / wire / ACH / check]
 
 ## Time-log location
-- **File:** [default `~/Documents/Claude/time-log.csv`]
+- **File:** [default `<config-root>/time-log.csv`]

@@ -1,5 +1,5 @@
 ---
-description: Generate monthly invoices from the time log. Reads ~/Documents/Claude/time-log.csv for the target month, groups by client, calculates totals against each client's billing model, and produces invoice drafts. Hands off to the anthropic-skills:invoice or docx skill for final document generation, or outputs structured invoice data inline. Run on the 1st of the month for the prior month.
+description: Generate monthly invoices from the time log. Reads <config-root>/time-log.csv for the target month, groups by client, calculates totals against each client's billing model, and produces invoice drafts. Hands off to the anthropic-skills:invoice or docx skill for final document generation, or outputs structured invoice data inline. Run on the 1st of the month for the prior month.
 ---
 
 # /generate-invoices
@@ -10,10 +10,10 @@ Monthly invoice generation. Closes the calendar → time-log → money loop.
 
 ## Step 0 — Preflight
 
-Read `references/user-context.md`. Extract:
+Read `<config-root>/plugins/time-tracking.user-context.md`. Extract:
 - Active clients + billing models (hourly rate / retainer / flat fee)
 - Invoice preferences (template, due-on-receipt vs net-30, delivery channel)
-- Time-log file path (default `~/Documents/Claude/time-log.csv`)
+- Time-log file path (default `<config-root>/time-log.csv`)
 
 If `project-setup` is installed, also read its user-context for current contract values and engagement names.
 
@@ -31,7 +31,7 @@ Announce: "Generating invoices for [Month YYYY]."
 
 ## Step 2 — Read the time log
 
-Open `~/Documents/Claude/time-log.csv`. Filter to:
+Open `<config-root>/time-log.csv`. Filter to:
 - Rows where `date` is within the target month
 - Rows where `billable` = true
 - Rows where `invoiced` = false (not already billed)
@@ -100,7 +100,7 @@ After invoices are drafted (and ideally sent), prompt:
 
 > "Mark these time-log rows as invoiced? (Y/N) — sets `invoiced=true` so they're not double-billed next month."
 
-If yes: update the corresponding rows in `~/Documents/Claude/time-log.csv`. This is the only mutation the plugin makes to existing rows.
+If yes: update the corresponding rows in `<config-root>/time-log.csv`. This is the only mutation the plugin makes to existing rows.
 
 ---
 

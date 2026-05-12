@@ -13,7 +13,7 @@ See `commands/track-time.md` for the full workflow.
 
 ## Pre-flight
 
-Confirm `references/user-context.md` exists. If missing, route to `/setup-time` first.
+Confirm `<config-root>/plugins/time-tracking.user-context.md` exists. If missing, route to `/setup-time` first.
 
 ## What this skill is NOT for
 

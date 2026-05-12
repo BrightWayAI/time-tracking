@@ -1,6 +1,6 @@
 # Time Log Schema
 
-The time-log lives at `~/Documents/Claude/time-log.csv` (or wherever your user-context's `time-log location` points).
+The time-log lives at `<config-root>/time-log.csv` (or wherever your user-context's `time-log location` points).
 
 Plain CSV — portable, readable, hand-editable, backup-friendly.
 
@@ -49,7 +49,7 @@ Standard CSV quoting:
 
 ### Backups
 
-The file is plain text — back up however you back up `~/Documents/Claude/`. Cortex memory and identity also live in that directory, so a single backup covers your whole BrightWayAI plugin state.
+The file is plain text — back up however you back up `~/Documents/Claude/`. Cortex memory and identity also live in that directory, so a single backup covers your whole marketplace plugin state.
 
 ### Future fields (v0.2+)
 
