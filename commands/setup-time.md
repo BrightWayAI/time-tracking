@@ -24,8 +24,6 @@ Prompt: "First-time plugin setup. Where should I store your plugin config — id
 
 Then:
 1. Call `request_cowork_directory(<path>)`. Create `<path>/plugins/`. Write absolute path to `~/.claude-plugin-config-root`.
-2. **Migration**: if `~/Documents/Claude/identity.md`, `voice.md`, or `time-log.csv` exists and `<path>` is not `~/Documents/Claude/`, offer to copy.
-3. **Pre-staged content**: if `~/Documents/Claude/plugin-configs/*.user-context.md` files exist, offer to copy into `<path>/plugins/`.
 
 ### C — Read shared identity
 
